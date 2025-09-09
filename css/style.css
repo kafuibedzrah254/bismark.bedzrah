@@ -19,6 +19,11 @@
   opacity: 1;
 }
 
+
+.skill {
+    margin-bottom: 1.5rem;
+}
+
 .skill .d-flex {
   flex-wrap: wrap; /* allow items to break into new lines */
 }
@@ -47,7 +52,11 @@
   }
 
   .progress {
-    height: 8px; /* thinner progress bar on mobile */
+ height: 1.25rem;
+    border-radius: 0.625rem;
+    overflow: hidden;
+    background-color: #e9ecef;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
   }
 
   .top-navbar .d-flex {
@@ -190,9 +199,27 @@
 }
 
 .progress .progress-bar {
-  width: 0px;
-  transition: 2s;
+    height: 100%;
+    border-radius: 0.625rem;
+    transition: width 0.8s ease;
 }
+
+/* Set specific widths for each progress bar */
+.skill:nth-child(1) .progress-bar { width: 99.9%; }
+.skill:nth-child(2) .progress-bar { width: 99.9%; }
+.skill:nth-child(3) .progress-bar { width: 90%; }
+.skill:nth-child(4) .progress-bar { width: 90%; }
+.skill:nth-child(5) .progress-bar { width: 97%; }
+.skill:nth-child(6) .progress-bar { width: 85%; }
+.skill:nth-child(7) .progress-bar { width: 85%; }
+.skill:nth-child(8) .progress-bar { width: 99.9%; }
+.skill:nth-child(9) .progress-bar { width: 20%; }
+.skill:nth-child(10) .progress-bar { width: 80%; }
+.skill:nth-child(11) .progress-bar { width: 80%; }
+.skill:nth-child(12) .progress-bar { width: 70%; }
+.skill:nth-child(13) .progress-bar { width: 70%; }
+.skill:nth-child(14) .progress-bar { width: 70%; }
+
 
 .service-item {
   padding: 30px;
