@@ -19,11 +19,35 @@
   opacity: 1;
 }
 
-@media (max-width: 991.98px) {
+.skill .d-flex {
+  flex-wrap: wrap; /* allow items to break into new lines */
+}
+
+.skill .d-flex p {
+  margin: 0; 
+  font-size: 16px; /* normal size for desktop */
+}
+
+@media (max-width: 576px) {
   .sticky-lg-top.vh-100 {
     height: 100% !important;
   }
+    .skill .d-flex {
+    flex-direction: column; /* stack vertically on small screens */
+    align-items: flex-start;
+  }
+
+  .skill .d-flex p {
+    font-size: 14px;  /* slightly smaller for mobile */
+    margin-bottom: 4px;
+  }
+
+  .progress {
+    height: 8px; /* thinner progress bar on mobile */
+  }
+
 }
+
 
 .fw-semi-bold {
   font-weight: 600;
