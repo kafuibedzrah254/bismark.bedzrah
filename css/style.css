@@ -26,7 +26,11 @@
 .skill .d-flex p {
   margin: 0; 
   font-size: 16px; /* normal size for desktop */
+
+
 }
+
+
 
 @media (max-width: 576px) {
   .sticky-lg-top.vh-100 {
@@ -45,6 +49,24 @@
   .progress {
     height: 8px; /* thinner progress bar on mobile */
   }
+
+  .top-navbar .d-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .top-navbar .nav-link {
+        margin: 8px 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        border-top: 1px solid #eee;
+    }
+
+    .top-navbar .nav-link:first-child {
+        border-top: none;
+    }
+
 
 }
 
@@ -243,7 +265,27 @@
 
 .mb-1 {
     color: var(--primary); /* Uses the green (#00B87B) defined in :root */
+
 }
+
+.top-navbar {
+    background-color: #fff; /* Optional: set background */
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.top-navbar .container {
+    max-width: 100%;
+    padding: 0 15px;
+}
+
+.top-navbar .nav-link {
+    margin: 0 10px;
+    text-decoration: none;
+    color:green;
+    font-weight: 500;
+}
+
 
 .fa-droplet {
   animation: drip 2s infinite;
