@@ -60,6 +60,8 @@
     margin-bottom: 4px;
   }
 
+  
+
   .progress {
     height: 1.25rem;
     border-radius: 0.625rem;
@@ -85,6 +87,12 @@
     .top-navbar .nav-link:first-child {
         border-top: none;
     }
+
+    .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 100%;
+}
 
 
 }
@@ -333,6 +341,11 @@
     font-weight: 500;
 }
 
+.container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 100%;
+}
 
 .fa-droplet {
   animation: drip 2s infinite;
