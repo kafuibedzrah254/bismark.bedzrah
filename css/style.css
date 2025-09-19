@@ -357,6 +357,24 @@
 }
 
 
+/* Force visible text while typing */
+.custom-field {
+  background-color: #fff;
+  color: #212529 !important;   /* make text solid dark */
+  border: 1px solid #ced4da;
+}
+
+/* Make sure the placeholder is also dark */
+.custom-field::placeholder {
+  color: #212529 !important;
+  opacity: 1;
+}
+
+/* Floating label styling */
+.form-floating > .custom-field:focus ~ label,
+.form-floating > .custom-field:not(:placeholder-shown) ~ label {
+  color: #495057;
+}
 
             .hamburger {
                 font-size: 24px;

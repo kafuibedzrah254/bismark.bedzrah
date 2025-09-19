@@ -448,52 +448,64 @@
 <section id="contact" class="py-5 border-bottom container">
   <h1 class="title pb-3 mb-5">Contact Me</h1>
 
-  <!-- Replace the action with the endpoint Formspree gave you -->
-  <form id="contact-form" action="https://formspree.io/f/mnnbezzv" method="POST" accept-charset="UTF-8">
+  <!-- Replace the action with your Formspree endpoint -->
+  <form id="contact-form"
+        action="https://formspree.io/f/mnnbezzv"
+        method="POST"
+        accept-charset="UTF-8">
     <div class="row g-3">
       <div class="col-md-6">
         <div class="form-floating">
-          <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
+          <input type="text" id="name" name="name"
+                 class="form-control custom-field"
+                 placeholder="Your Name" required>
           <label for="name">Your Name</label>
         </div>
       </div>
 
       <div class="col-md-6">
         <div class="form-floating">
-          <input type="email" id="email" name="email" class="form-control" placeholder="Your Email" required>
+          <input type="email" id="email" name="email"
+                 class="form-control custom-field"
+                 placeholder="Your Email" required>
           <label for="email">Your Email</label>
         </div>
       </div>
 
       <div class="col-12">
         <div class="form-floating">
-          <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject">
+          <input type="text" id="subject" name="subject"
+                 class="form-control custom-field"
+                 placeholder="Subject">
           <label for="subject">Subject</label>
         </div>
       </div>
 
       <div class="col-12">
         <div class="form-floating">
-          <textarea id="message" name="message" class="form-control" placeholder="Leave a message here" style="height:200px" required></textarea>
+          <textarea id="message" name="message"
+                    class="form-control custom-field"
+                    placeholder="Leave a message here"
+                    style="height:200px" required></textarea>
           <label for="message">Message</label>
         </div>
       </div>
 
-      <!-- Honeypot field to reduce spam (hidden from real users) -->
+      <!-- Honeypot field -->
       <div style="display:none;">
-        <label>Leave this empty: <input name="_gotcha" tabindex="-1" autocomplete="off"></label>
+        <label>Leave this empty:
+          <input name="_gotcha" tabindex="-1" autocomplete="off">
+        </label>
       </div>
 
-      <!-- Optional: redirect after success (server-side Formspree setting can also control this) -->
-      <!-- <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html"> -->
-
       <div class="col-12">
-        <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+        <button class="btn btn-primary w-100 py-3" type="submit">
+          Send Message
+        </button>
       </div>
     </div>
   </form>
 
-  <!-- container for showing success/failure messages when using AJAX -->
   <div id="form-result" style="margin-top:1rem;"></div>
 </section>
 
