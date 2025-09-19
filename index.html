@@ -444,39 +444,93 @@
                     <!-- Testimonial End -->
 
                     <!-- Contact Start -->
-<section id="contact" class="py-5 border-bottom wow fadeInUp container" data-wow-delay="0.1s">                        <h1 class="title pb-3 mb-5">Contact Me</h1>
-                        <form>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control border-0 bg-secondary" id="name" placeholder="Your Name">
-                                        <label for="name">Your Name</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control border-0 bg-secondary" id="email" placeholder="Your Email">
-                                        <label for="email">Your Email</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control border-0 bg-secondary" id="subject" placeholder="Subject">
-                                        <label for="subject">Subject</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control border-0 bg-secondary" placeholder="Leave a message here" id="message" style="height: 200px"></textarea>
-                                        <label for="message">Message</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
-                                </div>
-                            </div>
-                        </form>
-                    </section>
+<!-- Contact section (static form POST to Formspree) -->
+<section id="contact" class="py-5 border-bottom container">
+  <h1 class="title pb-3 mb-5">Contact Me</h1>
+
+  <!-- Replace the action with the endpoint Formspree gave you -->
+  <form id="contact-form" action="https://formspree.io/f/mnnbezzv" method="POST" accept-charset="UTF-8">
+    <div class="row g-3">
+      <div class="col-md-6">
+        <div class="form-floating">
+          <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
+          <label for="name">Your Name</label>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-floating">
+          <input type="email" id="email" name="email" class="form-control" placeholder="Your Email" required>
+          <label for="email">Your Email</label>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="form-floating">
+          <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject">
+          <label for="subject">Subject</label>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="form-floating">
+          <textarea id="message" name="message" class="form-control" placeholder="Leave a message here" style="height:200px" required></textarea>
+          <label for="message">Message</label>
+        </div>
+      </div>
+
+      <!-- Honeypot field to reduce spam (hidden from real users) -->
+      <div style="display:none;">
+        <label>Leave this empty: <input name="_gotcha" tabindex="-1" autocomplete="off"></label>
+      </div>
+
+      <!-- Optional: redirect after success (server-side Formspree setting can also control this) -->
+      <!-- <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html"> -->
+
+      <div class="col-12">
+        <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+      </div>
+    </div>
+  </form>
+
+  <!-- container for showing success/failure messages when using AJAX -->
+  <div id="form-result" style="margin-top:1rem;"></div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contact-form');
+  const result = document.getElementById('form-result');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();                     // keep on-page
+    result.innerHTML = '';                  // clear previous
+
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' } // ask Formspree for JSON reply
+      });
+
+      if (res.ok) {
+        // success
+        result.innerHTML = '<div class="alert alert-success">Thanks — your message was sent!</div>';
+        form.reset();
+      } else {
+        // try to parse JSON error
+        const err = await res.json().catch(() => null);
+        result.innerHTML = '<div class="alert alert-danger">' + (err?.error || 'Submission failed — please try again.') + '</div>';
+      }
+    } catch (err) {
+      result.innerHTML = '<div class="alert alert-danger">Network error — please try again later.</div>';
+    }
+  });
+});
+</script>
+
                     <!-- Contact End -->
 
                     <!-- Footer Start -->
